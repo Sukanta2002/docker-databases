@@ -3,7 +3,7 @@ services:
     image: postgres
     restart: always
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql/data
     ports:
       - 5432:5432 # make sure you don't have another container running on 5432
 
@@ -17,3 +17,6 @@ services:
     restart: always
     ports:
       - 8080:8080
+volumes:
+  db_data:
+    driver: local
